@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #343a40;
+    }
+
+    .home-link {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-link:hover {
+      background-color: #0056b3;
+    }
+
+    .navbar-link {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .navbar-link:hover {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <%- include('navbar') %>
+  <h2>Blogify</h2>
+  <a href="/blog/create" class="home-link">Add Blogs</a>
+  <a href="/blog/myblogs" class="home-link">My Blogs</a>
+</body>
+</html>

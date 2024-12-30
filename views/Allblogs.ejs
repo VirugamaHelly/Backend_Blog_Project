@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #495057;
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 80%; 
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .no-blogs {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-top: 50px;
+        }
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <%- include('Home') %>
+
+    <h1>All Blogs</h1>
+    
+    <% if (user) { %>
+        <p class="welcome-message">Welcome, <%= user.name %>!</p>
+    <% } %>
+    
+    <% if (blogs && blogs.length > 0) { %>
+        <ul>
+            <% blogs.forEach(blog => { %>
+                <li>
+                    <h3><%= blog.title %></h3>
+                    <p><%= blog.description %></p>
+                    <% if (blog.image) { %>
+                        <img src="/Uploads/<%= blog.image %>" alt="Blog Image">
+                    <% } %>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p class="no-blogs">No blogs available at the moment.</p>
+    <% } %>
+</body>
+</html>
